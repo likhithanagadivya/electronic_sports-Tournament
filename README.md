@@ -1,373 +1,662 @@
 # 🎮 Electronic Sports Tournament Management System
 
-## 📌 Project Overview
+## Player, Tournament & Registration Management System
 
-The **Electronic Sports (E-Sports) Tournament Management System** is a Python and MySQL-based application designed to manage and organize gaming tournaments efficiently.
+**Electronic Sports Tournament Management System** is a professional **Python + MySQL terminal/CLI application** designed to manage **players, esports tournaments, and tournament registrations** in one complete system.
 
-The system allows administrators to manage **players, teams, tournaments, matches, scores, and results**. It reduces manual work and provides an organized way to maintain tournament information using a MySQL database.
-
----
-
-## 🎯 Objectives
-
-* Manage E-Sports tournaments efficiently.
-* Register and manage players and teams.
-* Schedule and manage tournament matches.
-* Record match scores and results.
-* Track team/player performance.
-* Store tournament information securely in MySQL.
-* Reduce manual record-keeping.
-* Provide an easy-to-use management system.
+> **Player → Tournament → Registration → Management**
 
 ---
 
-## 🛠️ Technologies Used
+## 🌟 Project at a Glance
 
-| Technology                 | Purpose                   |
-| -------------------------- | ------------------------- |
-| **Python**                 | Application development   |
-| **MySQL**                  | Database management       |
-| **MySQL Connector/Python** | Connect Python with MySQL |
-| **SQL**                    | Database queries          |
-| **Git & GitHub**           | Version control           |
+### 👤 Player
 
----
+* 📝 Add Player
+* 👀 View Players
+* ✏️ Update Player
+* 🗑️ Delete Player
+* 🎮 Register Player for Tournament
 
-## ✨ Features
+### 🏆 Tournament
 
-### 👤 Player Management
+* ➕ Add Tournament
+* 👀 View Tournaments
+* 📅 Manage Tournament Details
+* 🎮 Register Players
+* 📋 View Tournament Information
 
-* Add new players
-* View player details
-* Update player information
-* Delete player records
+### 📋 Registration
 
-### 👥 Team Management
-
-* Create teams
-* Add players to teams
-* View team details
-* Update team information
-* Delete teams
-
-### 🏆 Tournament Management
-
-* Create tournaments
-* View tournament details
-* Update tournament information
-* Delete tournaments
-* Manage tournament status
-
-### 🎮 Match Management
-
-* Schedule matches
-* Assign teams to matches
-* Record match scores
-* Update match results
-* View match history
-
-### 📊 Results & Performance
-
-* Display tournament results
-* Track team scores
-* Identify winners
-* View player/team performance
+* 📝 Register Player
+* 🔗 Connect Players with Tournaments
+* 👀 View Registrations
+* 📊 Track Tournament Registrations
 
 ---
 
-## 🗄️ Database Structure
+# 🎯 Why Electronic Sports Tournament Management System?
 
-The project uses MySQL to store and manage application data.
+Electronic sports tournaments require proper management of players, tournaments, and registrations.
 
-### Main Tables
+This project provides a simple and efficient way to manage tournament-related information using **Python and MySQL**.
+
+### Main Benefits
+
+* 👤 Easy Player Management
+* 🏆 Easy Tournament Management
+* 🎮 Simple Player Registration
+* 🗄️ Database Storage
+* 🔄 CRUD Operations
+* 🔗 Relationship Between Tables
+* 💻 Simple CLI Interface
+
+The project is designed to demonstrate how a real-world management system can be developed using **Python with MySQL**.
+
+---
+
+# ✨ Main Features
+
+| **Feature**           | **Description**                    |
+| --------------------- | ---------------------------------- |
+| 👤 Add Player         | Add new player information         |
+| 👀 View Players       | Display all players                |
+| ✏️ Update Player      | Update existing player information |
+| 🗑️ Delete Player     | Delete player information          |
+| 🏆 Add Tournament     | Create a new tournament            |
+| 👀 View Tournaments   | Display available tournaments      |
+| 🎮 Register Player    | Register a player for a tournament |
+| 📋 View Registrations | Display tournament registrations   |
+| 🗄️ MySQL Database    | Store project data                 |
+
+---
+
+# 👤 Player Management
+
+The Player Management module allows the system to manage player information.
+
+### Player Operations
 
 ```text
-Players
---------
-player_id
-player_name
-email
-phone
-team_id
+========== PLAYER MENU ==========
 
-Teams
---------
-team_id
-team_name
-captain
-created_date
-
-Tournaments
---------
-tournament_id
-tournament_name
-game_name
-start_date
-end_date
-status
-
-Matches
---------
-match_id
-tournament_id
-team1_id
-team2_id
-match_date
-team1_score
-team2_score
-winner_id
+1. Add Player
+2. View Players
+3. Update Player
+4. Delete Player
+5. Back
 ```
 
-### Relationship
+Player information can include:
 
 ```text
-Players
-   |
-   | belongs to
-   ↓
-Teams
-   |
-   | participates in
-   ↓
-Tournaments
-   |
-   | contains
-   ↓
-Matches
+Player ID
+Player Name
+Email
+Phone Number
+Game Name
+Team Name
+```
+
+Example:
+
+```text
+PLAYER DETAILS
+
+Player ID   : 101
+Player Name : Likhitha
+Email       : likhitha@example.com
+Game Name   : BGMI
+Team Name   : Thunder Squad
 ```
 
 ---
 
-## 📁 Project Structure
+# 🏆 Tournament Management
+
+The Tournament Management module allows tournaments to be created and viewed.
+
+### Tournament Operations
+
+```text
+======== TOURNAMENT MENU ========
+
+1. Add Tournament
+2. View Tournaments
+3. Back
+```
+
+Tournament information can include:
+
+```text
+Tournament ID
+Tournament Name
+Game Name
+Tournament Date
+Location
+Prize Pool
+```
+
+Example:
+
+```text
+TOURNAMENT DETAILS
+
+Tournament ID   : 1
+Tournament Name : BGMI Championship
+Game Name       : BGMI
+Tournament Date : 15 September 2026
+Location        : Hyderabad
+Prize Pool      : ₹50,000
+```
+
+---
+
+# 🎮 Player Registration
+
+Players can register for available tournaments.
+
+### Registration Workflow
+
+```text
+👤 Player
+     │
+     ▼
+🏆 View Tournament
+     │
+     ▼
+🎮 Select Tournament
+     │
+     ▼
+📝 Register Player
+     │
+     ▼
+✅ Registration Successful
+```
+
+The registration system connects a player with a tournament.
+
+---
+
+# 📋 Registration Management
+
+The Registration module stores the relationship between players and tournaments.
+
+Example:
+
+```text
+REGISTRATION DETAILS
+
+Registration ID : 1
+Player ID       : 101
+Player Name     : Likhitha
+Tournament ID   : 1
+Tournament Name : BGMI Championship
+Registration Date : 2026-09-07
+```
+
+---
+
+# 🗄️ Database Design
+
+The project contains **3 main tables**.
+
+## 1️⃣ Players Table
+
+The `players` table stores player information.
+
+```text
+players
+│
+├── player_id
+├── player_name
+├── email
+├── phone
+├── game_name
+└── team_name
+```
+
+---
+
+## 2️⃣ Tournaments Table
+
+The `tournaments` table stores tournament information.
+
+```text
+tournaments
+│
+├── tournament_id
+├── tournament_name
+├── game_name
+├── tournament_date
+├── location
+└── prize_pool
+```
+
+---
+
+## 3️⃣ Registrations Table
+
+The `registrations` table connects players with tournaments.
+
+```text
+registrations
+│
+├── registration_id
+├── player_id
+├── tournament_id
+└── registration_date
+```
+
+### 🔗 Table Relationship
+
+```text
+              PLAYERS
+                 │
+                 │
+             player_id
+                 │
+                 ▼
+          REGISTRATIONS
+                 ▲
+                 │
+          tournament_id
+                 │
+                 │
+            TOURNAMENTS
+```
+
+The `registrations` table works as the connection between the `players` and `tournaments` tables.
+
+---
+
+# 🔄 CRUD Operations
+
+The project demonstrates the four basic **CRUD operations**.
+
+```text
+C → Create
+R → Read
+U → Update
+D → Delete
+```
+
+### Create
+
+```text
+Add Player
+Add Tournament
+Register Player
+```
+
+### Read
+
+```text
+View Players
+View Tournaments
+View Registrations
+```
+
+### Update
+
+```text
+Update Player
+```
+
+### Delete
+
+```text
+Delete Player
+```
+
+---
+
+# 🏗️ Project Architecture
+
+```text
+              ELECTRONIC SPORTS
+           TOURNAMENT MANAGEMENT
+                    │
+                    ▼
+             Python Application
+                    │
+          ┌─────────┼─────────┐
+          ▼         ▼         ▼
+       Players   Tournaments  Registrations
+          │         │         │
+          └─────────┼─────────┘
+                    ▼
+              MySQL Database
+```
+
+---
+
+# 💻 Main Menu
+
+The application provides a simple menu-driven terminal interface.
+
+```text
+=============================================
+ ELECTRONIC SPORTS TOURNAMENT MANAGEMENT
+=============================================
+
+1. Player Management
+2. Tournament Management
+3. Register Player
+4. View Registrations
+5. Exit
+```
+
+---
+
+# 🔄 Complete Project Workflow
+
+```text
+START
+  │
+  ▼
+Open Application
+  │
+  ▼
+Main Menu
+  │
+  ├──────────────► Player Management
+  │                    │
+  │                    ├── Add Player
+  │                    ├── View Players
+  │                    ├── Update Player
+  │                    └── Delete Player
+  │
+  ├──────────────► Tournament Management
+  │                    │
+  │                    ├── Add Tournament
+  │                    └── View Tournaments
+  │
+  └──────────────► Registration
+                       │
+                       ├── Select Player
+                       ├── Select Tournament
+                       └── Register Player
+```
+
+---
+
+# 🛠️ Technology Stack
+
+| **Technology**                |
+| ----------------------------- |
+| 🐍 **Python**                 |
+| 🗄️ **MySQL**                 |
+| 🔌 **mysql-connector-python** |
+| 💻 **CLI / Terminal**         |
+
+---
+
+# 📁 Project Structure
 
 ```text
 electronic_sports-Tournament/
 │
 ├── main.py
-├── database.py
-├── player.py
-├── team.py
 ├── tournament.py
-├── match.py
-├── requirements.txt
+├── database.py
 ├── README.md
 │
-└── sql/
-    └── database.sql
+└── requirements.txt
 ```
 
-> You can change the file names above according to your actual project structure.
-
----
-
-## ⚙️ Requirements
-
-Before running the project, install:
-
-* Python 3.x
-* MySQL Server
-* MySQL Workbench (optional)
-* Git
-
-Install the required Python package:
-
-```bash
-pip install mysql-connector-python
-```
-
----
-
-## 🗃️ Database Setup
-
-### 1. Start MySQL
-
-Make sure your MySQL server is running.
-
-### 2. Create the Database
-
-Open MySQL and execute:
-
-```sql
-CREATE DATABASE esports_tournament;
-```
-
-### 3. Select the Database
-
-```sql
-USE esports_tournament;
-```
-
-### 4. Create Tables
-
-Run the SQL commands from:
+### Main Python File
 
 ```text
-sql/database.sql
+main.py
 ```
 
-or create the required tables manually.
+Used to start the application and display the main menu.
 
----
-
-## 🔌 Database Connection
-
-Example Python database connection:
-
-```python
-import mysql.connector
-
-connection = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="your_password",
-    database="esports_tournament"
-)
-
-cursor = connection.cursor()
-
-print("Database connected successfully!")
-```
-
-Replace:
+### Tournament Module
 
 ```text
-your_password
+tournament.py
 ```
 
-with your MySQL password.
+Contains the tournament management functions such as:
+
+```text
+add_player()
+view_players()
+update_player()
+delete_player()
+
+add_tournament()
+view_tournaments()
+
+register_player()
+view_registrations()
+```
+
+### Database Module
+
+```text
+database.py
+```
+
+Used for MySQL database connectivity and database operations.
 
 ---
 
-## ▶️ How to Run the Project
+# ⚙️ Installation
 
-### Step 1: Clone the Repository
+## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/electronic_sports-Tournament.git
+git clone <your-repository-url>
 ```
 
-### Step 2: Open the Project
+## 2. Open the Project Folder
 
 ```bash
 cd electronic_sports-Tournament
 ```
 
-### Step 3: Install Dependencies
+## 3. Install Required Package
+
+```bash
+pip install mysql-connector-python
+```
+
+Or:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Configure MySQL
+---
 
-Update the database username, password, and database name in your Python database connection file.
+# 🗄️ MySQL Database Setup
 
-### Step 5: Run the Application
+Make sure **MySQL Server** is installed and running.
+
+Create the database:
+
+```sql
+CREATE DATABASE electronic_sports;
+```
+
+Select the database:
+
+```sql
+USE electronic_sports;
+```
+
+Create the required tables:
+
+```text
+Players
+Tournaments
+Registrations
+```
+
+Configure the MySQL connection in the Python database configuration.
+
+---
+
+# ▶️ Run the Project
+
+Run the application using:
 
 ```bash
 python main.py
 ```
 
+For macOS/Linux:
+
+```bash
+python3 main.py
+```
+
+The application will display the main menu in the terminal.
+
 ---
 
-## 🖥️ Sample Menu
+# 🎯 Main Objectives
+
+The main objectives of this project are:
+
+* 👤 Manage esports player information
+* 🏆 Manage tournament information
+* 🎮 Register players for tournaments
+* 🗄️ Store data using MySQL
+* 🔗 Create relationships between tables
+* 🔄 Perform CRUD operations
+* 🐍 Practice Python programming
+* 💻 Build a real-world CLI application
+
+---
+
+# 📚 Concepts Used
+
+This project demonstrates the following concepts:
 
 ```text
-========================================
- Electronic Sports Tournament Management
-========================================
+🐍 Python Functions
+🐍 Python Modules
+🐍 Loops
+🐍 Conditional Statements
+🐍 Exception Handling
 
-1. Player Management
-2. Team Management
-3. Tournament Management
-4. Match Management
-5. View Results
-6. Exit
+🗄️ MySQL Database
+🔌 MySQL Connectivity
 
-Enter your choice:
+➕ INSERT
+🔍 SELECT
+✏️ UPDATE
+🗑️ DELETE
+
+🔗 Primary Key
+🔗 Foreign Key
+📋 CRUD Operations
 ```
 
 ---
 
-## 🔄 System Workflow
+# 🏆 Project Highlights
 
 ```text
-Admin
-  ↓
-Register Players
-  ↓
-Create Teams
-  ↓
-Create Tournament
-  ↓
-Schedule Matches
-  ↓
-Enter Match Scores
-  ↓
-Calculate Results
-  ↓
-Display Winner
+┌──────────────────────────────────────────────────────┐
+│       ELECTRONIC SPORTS TOURNAMENT SYSTEM            │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  👤 Player Management                                │
+│  🏆 Tournament Management                            │
+│  🎮 Player Registration                              │
+│  ✏️ Update Player Information                        │
+│  🗑️ Delete Player Information                        │
+│  👀 View Players                                     │
+│  👀 View Tournaments                                 │
+│  📋 View Registrations                               │
+│  🗄️ MySQL Database                                  │
+│  🐍 Python                                           │
+│  💻 CLI / Terminal                                   │
+│                                                      │
+└──────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🔐 Security
+# 🔮 Future Enhancements
 
-* Database credentials should not be hard-coded in production.
-* User input should be validated.
-* SQL queries should use parameterized statements to reduce SQL injection risks.
-
-Example:
-
-```python
-query = "INSERT INTO players (player_name, email) VALUES (%s, %s)"
-
-values = (player_name, email)
-
-cursor.execute(query, values)
-connection.commit()
+```text
+🌐 Web Application
+📱 Mobile Application
+🔐 User Login & Authentication
+👥 Team Management
+🏆 Tournament Brackets
+📊 Leaderboards
+🎮 Multiple Game Support
+📅 Match Scheduling
+💰 Prize Management
+🔔 Notifications
+📧 Email Notifications
+📊 Tournament Analytics
+☁️ Cloud Deployment
 ```
 
 ---
 
-## 🚀 Future Enhancements
+# 👥 Complete User Journey
 
-The project can be extended with:
+### 👤 Player
 
-* 🔑 Admin login and authentication
-* 🏅 Leaderboard
-* 📈 Tournament statistics
-* 🌐 Web-based interface
-* 📱 Mobile application
-* 🏆 Automatic tournament bracket generation
-* 📧 Email notifications
-* 📊 Performance dashboards
-* 👨‍💻 Player ranking system
+**Add Player → View Tournament → Register → Participate**
 
----
+### 🏆 Tournament
 
-## 🎓 Project Use
+**Create Tournament → View Tournament → Register Players → Manage Tournament**
 
-This project is suitable for:
+### 🗄️ System
 
-* Python projects
-* MySQL database projects
-* College final-year projects
-* Mini projects
-* CRUD application practice
-* Python + SQL interview demonstrations
+**Store Data → Update Data → View Data → Delete Data**
 
 ---
 
-## 👩‍💻 Author
+# 🤝 Contributing
 
-**Likhitha**
-
-B.Sc. Computer Science
+```text
+Fork Repository
+      ↓
+Create Feature Branch
+      ↓
+Make Changes
+      ↓
+Test Application
+      ↓
+Commit Changes
+      ↓
+Push Changes
+      ↓
+Create Pull Request
+```
 
 ---
 
-## 📄 License
+# 📜 Project Usage & License
 
-This project is created for educational and learning purposes.
+This project is created for **educational, academic, and project demonstration purposes**.
 
+The project demonstrates Python programming, MySQL database management, CRUD operations, and database relationships.
+
+Please respect the project owner's source code and documentation.
+
+---
+
+# 👩‍💻 Developed By
+
+**Jonnalagadda Sri Likhitha**
+
+---
+
+# 🎮 Electronic Sports Tournament Management System
+
+## Manage Players. Organize Tournaments. Build Champions.
+
+> **Play. Compete. Win. 🏆**
